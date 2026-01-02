@@ -1,0 +1,137 @@
+/* Container for the card */
+.card {
+    border: 1px solid #e2e2e2;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+    border-color: #ff6600;
+}
+
+/* Image styling */
+.imageWrapper {
+    width: 100%;
+    height: 200px;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+    transform: scale(1.05);
+    /* Subtle zoom on hover */
+}
+
+/* Text Content */
+.title {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    margin: 5px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Truncate after 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 40px;
+    /* Fixed height for title alignment */
+}
+
+.price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #333;
+    margin: 5px 0 2px;
+}
+
+.minOrder {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+/* Supplier Info Section (New) */
+.supplierInfo {
+    margin-top: auto;
+    /* Push to bottom */
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 12px;
+}
+
+.supplierHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.supplierName {
+    color: #333;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+.yearsBadge {
+    font-size: 10px;
+    font-weight: bold;
+    color: #666;
+    background-color: #f0f0f0;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+.verifiedBadge {
+    display: inline-flex;
+    align-items: center;
+    color: #007aff;
+    /* Alibaba Blue */
+    font-weight: bold;
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.verifiedIcon {
+    margin-right: 4px;
+    width: 14px;
+    height: 14px;
+    background-color: #e6f2ff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.responseRate {
+    color: #999;
+    font-size: 11px;
+    margin-left: auto;
+}

@@ -1,0 +1,15 @@
+⚠ Attempted to load @next/swc-win32-x64-msvc, but an error occurred: \\?\C:\Users\HP\.gemini\antigravity\scratch\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node is not a valid Win32 application.
+\\?\C:\Users\HP\.gemini\antigravity\scratch\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node
+▲ Next.js 16.1.1 (Turbopack)
+- Local:         http://localhost:3008
+- Network:       http://192.168.1.86:3008
+- Environments: .env
+
+✓ Starting...
+  Skipping creating a lockfile at C:\Users\HP\.gemini\antigravity\scratch\.next\dev\lock because we're using WASM bindings
+Error: `turbo.createProject` is not supported by the wasm bindings.
+    at ignore-listed frames
+⚠ Attempted to load @next/swc-win32-x64-msvc, but an error occurred: \\?\C:\Users\HP\.gemini\antigravity\scratch\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node is not a valid Win32 application.
+\\?\C:\Users\HP\.gemini\antigravity\scratch\node_modules\@next\swc-win32-x64-msvc\next-swc.win32-x64-msvc.node
+[?25h
+Assertion failed: !(handle->flags & UV_HANDLE_CLOSING), file src\win\async.c, line 76

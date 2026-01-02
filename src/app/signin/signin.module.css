@@ -1,0 +1,105 @@
+.container {
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 24px;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://s.alicdn.com/@img/tfs/TB1.Zgyr.z1gK0jSZLeXXb9kVXa-2880-1280.jpg');
+    /* Official Alibaba Login BG Placeholder */
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+}
+
+.loginBox {
+    background: white;
+    padding: 30px;
+    width: 380px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.formTitle {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 14px;
+}
+
+.input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.divider {
+    margin: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    line-height: 0.1em;
+    color: #999;
+    font-size: 12px;
+}
+
+.divider span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+.socialLogin {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    background: #fff;
+}

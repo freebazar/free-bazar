@@ -1,0 +1,103 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  password      String?
+  image         String?
+  companyName   String?
+  role          String    @default("BUYER") // BUYER, SUPPLIER, ADMIN
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  orders        Order[]
+  reviews       Review[]
+  inquiriesSent Inquiry[] @relation("SentInquiries")
+  inquiriesRecv Inquiry[] @relation("ReceivedInquiries")
+}
+
+model Product {
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  priceRow      String    // e.g. "$10.00 - $15.00"
+  minPrice      Float
+  maxPrice      Float
+  moq           Int       @default(1)
+  moqUnit       String    @default("Pieces")
+  images        String    // JSON string or comma separated URLs
+  rating        Float     @default(0)
+  reviewCount   Int       @default(0)
+  
+  // Supplier Info
+  supplierName  String
+  supplierId    String?   // Link to User if supplier is regestered
+  isVerified    Boolean   @default(false)
+  yearsInBiz    Int       @default(1)
+  countryCode   String    @default("CN")
+  responseRate  String?   // e.g. "98.5%"
+
+  category      String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  reviews       Review[]
+  orderItems    OrderItem[]
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String
+  user          User        @relation(fields: [userId], references: [id])
+  total         Float
+  status        String      @default("PENDING") // PENDING, SHIPPED, DELIVERED, CANCELLED
+  items         OrderItem[]
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model OrderItem {
+  id            String    @id @default(cuid())
+  orderId       String
+  order         Order     @relation(fields: [orderId], references: [id])
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id])
+  quantity      Int
+  priceAtOrder  Float
+  title         String
+}
+
+model Review {
+  id            String    @id @default(cuid())
+  rating        Int
+  comment       String
+  userId        String
+  user          User      @relation(fields: [userId], references: [id])
+  productId     String
+  product       Product   @relation(fields: [productId], references: [id])
+  createdAt     DateTime  @default(now())
+}
+
+model Inquiry {
+  id            String    @id @default(cuid())
+  subject       String
+  message       String
+  senderId      String
+  sender        User      @relation("SentInquiries", fields: [senderId], references: [id])
+  receiverId    String
+  receiver      User      @relation("ReceivedInquiries", fields: [receiverId], references: [id])
+  productId     String?
+  status        String    @default("UNREAD")
+  createdAt     DateTime  @default(now())
+}
+
