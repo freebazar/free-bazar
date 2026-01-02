@@ -24,6 +24,7 @@ model User {
   reviews       Review[]
   inquiriesSent Inquiry[] @relation("SentInquiries")
   inquiriesRecv Inquiry[] @relation("ReceivedInquiries")
+  products      Product[] @relation("SupplierProducts")
 }
 
 model Product {
@@ -41,7 +42,8 @@ model Product {
   
   // Supplier Info
   supplierName  String
-  supplierId    String?   // Link to User if supplier is regestered
+  supplierId    String?   // Link to User if supplier is registered
+  supplier      User?     @relation("SupplierProducts", fields: [supplierId], references: [id])
   isVerified    Boolean   @default(false)
   yearsInBiz    Int       @default(1)
   countryCode   String    @default("CN")
